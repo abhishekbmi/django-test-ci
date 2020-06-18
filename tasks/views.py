@@ -1,9 +1,7 @@
 """
 Task app: Views file
 """
-from django.shortcuts import (
-    render_to_response
-)
+from django.shortcuts import render
 from django.views.generic import ListView, TemplateView, DetailView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.urls import reverse_lazy
@@ -79,7 +77,7 @@ def page_not_found(request, exception):
     """
         function to return view http error 404.  
     """
-    response = render_to_response(
+    response = render(request,
         'tasks/404.html',
         {}
     )
@@ -92,7 +90,7 @@ def server_error(request):
     """
         function to return view http error 500. 
     """
-    response = render_to_response(
+    response = render(request,
         'tasks/500.html',
         {}
     )
